@@ -3,7 +3,7 @@ import yfinance as yf
 import feedparser
 import plotly.graph_objects as go
 from datetime import datetime
-
+from zoneinfo import ZoneInfo
 
 st.set_page_config(
     page_title="StockPilot AI",
@@ -16,7 +16,9 @@ st.caption("투자 의사결정 지원 AI Agent")
 # 마지막 업데이트
 # =====================
 
-current_time = datetime.now().strftime("%Y-%m-%d %H:%M")
+current_time = datetime.now(
+    ZoneInfo("Asia/Seoul")
+).strftime("%Y-%m-%d %H:%M")
 
 st.caption(f"🕒 마지막 업데이트 : {current_time}")
 
